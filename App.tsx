@@ -1,18 +1,17 @@
+// src/App.tsx
 import React from 'react';
 import { Provider } from 'react-redux';
 import { PaperProvider } from 'react-native-paper';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { store } from '@/redux/store';
-import { AppNavigator } from '@/navigation/AppNavigator';
+import { store } from './src/redux/store';
+import { RootNavigator } from './src/navigation';
+import { lightTheme } from './src/themes/colors';
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <Provider store={store}>
-      <SafeAreaProvider>
-        <PaperProvider>
-          <AppNavigator />
-        </PaperProvider>
-      </SafeAreaProvider>
+      <PaperProvider theme={lightTheme}>
+        <RootNavigator />
+      </PaperProvider>
     </Provider>
   );
 };
